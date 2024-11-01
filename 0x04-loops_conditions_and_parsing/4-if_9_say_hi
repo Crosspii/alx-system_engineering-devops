@@ -1,5 +1,5 @@
-#/usr/bin/env bash
-#Prints "Best School" 10 times and Hi on the 9th line using a while loop
+#!/usr/bin/env bash
+#Prints "Best School" 10 times and Hi on the 9th line using a while loop 
 
 i=1
 while [ $i -le 10 ]
