@@ -1,4 +1,4 @@
-# This puppet manisfest installs flask vesrion 2.1 using pip3
+# This Puppet manifest installs Flask version 2.1.0 using pip3 on Ubuntu 20.04 LTS
 
 package { 'python3-pip':
   ensure => installed,
