@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Bash script that transfers a file from the local machine to a remote server
+# Check if the number of arguments is less than 4
+if [ $# -lt 4 ]; then
+    echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+    exit 1
+fi
+
+# Assign arguments to variables
+FILE_PATH="$1"
+SERVER_IP="$2"
+USERNAME="$3"
+SSH_KEY_PATH="$4"
+
+# Check if the file to transfer exists
+if [ ! -f "$FILE_PATH" ]; then
+    echo "Error: File '$FILE_PATH' does not exist."
+    exit 1
+fi
+
+# Check if the SSH key exists
+if [ ! -f "$SSH_KEY_PATH" ]; then
+    echo "Error: SSH key '$SSH_KEY_PATH' does not exist."
+    exit 1
+fi
+
+# Use scp to transfer the file to the remote server, disabling strict host key checking
+scp -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" "$FILE_PATH" "$USERNAME@$SERVER_IP:~/"
