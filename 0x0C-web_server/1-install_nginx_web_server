@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Script to install and configure Nginx on a new Ubuntu server
+# The server will listen on port 80 and serve a "Hello World" page
+
+# Update the package list and install Nginx
+sudo apt-get update -y -qq && \
+    sudo apt-get install nginx -y
+
+# Start the Nginx service
+sudo service nginx start
+
+# Grant user ownership of website files for editing
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
+# Create a new index.html with "Hello World!" content
+echo "Hello World!" > /var/www/html/index.html
+
+# Restart the Nginx service to apply changes
+sudo service nginx restart
