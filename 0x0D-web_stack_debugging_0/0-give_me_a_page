@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# make the apache server retrn hello alx
+echo "Hello ALX" > /var/www/html/index.html
+service apache2 start
