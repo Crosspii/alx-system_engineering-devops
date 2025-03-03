@@ -1,7 +1,6 @@
-# Puppet manifest to fix the apche 500 error we debugged
-
+# Puppet manifest to fix Apache 500 error
 
 exec { 'fix-wordpress':
-  command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
-  path    => '/usr/local/bin/:/bin/'
+  command  => 'sudo sed -i "s/.phpp/.php/" /var/www/html/wp-settings.php',
+  provider => shell,
 }
